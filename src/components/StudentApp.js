@@ -1,12 +1,13 @@
 import React from 'react';
 import {StudentLogin} from '../components/StudentLogin';
-import {Dashboard} from '../components/Dashboard';
 import {  Route,Switch } from "react-router-dom";
+import {Dashboard} from '../components/Dashboard';
+
 const studentApp = ()=>{
     return (
         <div>
             <Switch>
-            <Route path="/" component={StudentLogin}/>
+            <Route path="/" exact component={StudentLogin}/>
             <Route path="/dashboard" exact component={Dashboard} />
             </Switch>
         </div>

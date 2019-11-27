@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/student.css';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from "react-router-dom";
+
 export class StudentLogin extends React.Component{
     constructor(props){
         super(props);
@@ -37,7 +38,6 @@ export class StudentLogin extends React.Component{
             </div>
             </form>
             </div>
-            
         </div>
     )
 }
