@@ -1,11 +1,24 @@
 import React from 'react';
 import '../css/student.css';
+import {Redirect} from 'react-router-dom';
 export class StudentLogin extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            redirectToReferrer: false
+        }
+    }
     submitForm (e) {
-		e.preventDefault()
+        e.preventDefault();
+        this.setState({"redirectToReferrer":true});
 	}
     render(){
+        const redirectToReferrer = this.state.redirectToReferrer;
+        if (redirectToReferrer === true) {
+           return  <Redirect to="/dashboard" />
+        }
     return (
+        
         <div className='outer-container'>
             
             <div className='inner-container'>
@@ -24,6 +37,7 @@ export class StudentLogin extends React.Component{
             </div>
             </form>
             </div>
+            
         </div>
     )
 }
