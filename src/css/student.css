@@ -1,0 +1,38 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: #a5a6a7;
+    font-size:14px;
+}
+.inner-container{
+    background:#e6e6e6;
+    border:2px solid #e4e1e1;
+    width:400px;
+    height: 200px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+h2{
+    text-align: center;
+    margin: 5px;  
+    font-size: 1.25rem; 
+    
+}
+label,input{
+    margin:0.5rem;
+}
+input{
+    height:25px;
+    outline: none;
+}
+.form-fields,button{
+ margin-left:3rem;
+}
+.form-fields button{
+    padding:0.25rem;
+}
