@@ -1,7 +1,7 @@
 import React from 'react';
 import {StudentLogin} from '../components/StudentLogin';
-import {  Route,Switch } from "react-router-dom";
-import {Dashboard} from '../components/Dashboard';
+import { Route,Switch } from "react-router-dom";
+import Dashboard from '../components/Dashboard';
 
 const studentApp = ()=>{
     return (
