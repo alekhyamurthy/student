@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {searchStudents} from '../actions/fetchStudents'
 const searchRef = React.createRef();
 const searchinput ={
     width:'25%',
@@ -10,19 +11,13 @@ const searchbutton={
     margin:'-3rem',
     padding:'2px'
 }
-const searchStudent =(props)=>{
-}
+
 const StudentHeader =(props)=>{
-    console.log(props);
-return (
-    
+return (    
     <div>
-        <input style={searchinput} ref={searchRef} onChange={searchStudent}/>
+        <input style={searchinput} ref={searchRef} onChange={()=>{props.searchStudents(searchRef.current.value)}}/>
         <button style={searchbutton}>search</button>
     </div>
 )
 }
-const mapStateToProps=(state)=>({
-    fetchStudentList:state.studentReducers.data
-});
-export default connect(mapStateToProps)(StudentHeader);
+export default connect(null,{searchStudents:searchStudents})(StudentHeader);

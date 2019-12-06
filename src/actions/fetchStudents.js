@@ -7,3 +7,8 @@ export const fetchStudents = () => async dispatch => {
         payload: response
     });
 }
+export const searchStudents = (value)=>{
+  return { type:"SEARCH",
+    payload:value
+}
+}

@@ -1,24 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchStudents} from '../actions/fetchStudents';
-import {StudentGrid} from '../components/StudentGrid';
-import StudentHeader from '../components/StudentHeader';
+import {StudentGrids} from '../components/StudentGrids';
  class Dashboard extends React.Component{
     componentDidMount(){
+        if(!this.props.fetchStudentList)
         this.props.fetchStudents();
     }
     render(){
         if(!this.props.fetchStudentList){
             return <div>Loading</div>;
         }
-        return(
-            <div style={{'margin':'20px'}}><StudentHeader/>{Object.values(this.props.fetchStudentList).map((student)=>{
-               return <StudentGrid  key={student.rollNo} student={student}/>
-            } )}</div>
-        )
+        return (<StudentGrids list={this.props.fetchStudentList}/>)
     }
 }
+const filterStudents = (data,searchStr)=>{
+    return data && Object.values(data).filter(function(e,i,a){
+        return e.name.startsWith(searchStr)});
+}
 const mapStateToPros = (state)=>({
-    fetchStudentList:state.studentReducers.data
+    fetchStudentList:filterStudents(state.studentReducers.data,state.searchReducer.searchStr)
 })
 export default connect(mapStateToPros,{fetchStudents:fetchStudents})(Dashboard);
