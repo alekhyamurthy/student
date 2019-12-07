@@ -14,11 +14,16 @@ import {StudentGrids} from '../components/StudentGrids';
         return (<StudentGrids list={this.props.fetchStudentList}/>)
     }
 }
-const filterStudents = (data,searchStr)=>{
-    return data && Object.values(data).filter(function(e,i,a){
+const filterStudents = (data,searchStr,sortingOrder)=>{
+    let filteredstudents = data && Object.values(data).filter(function(e,i,a){
         return e.name.startsWith(searchStr)});
+       return filteredstudents && filteredstudents.sort(function(a, b){
+            if(sortingOrder === 'ASC' && a.name < b.name) { return -1; }
+            if(sortingOrder === 'DESC' && a.name > b.name) { return 1; }
+            return 0;
+        })
 }
 const mapStateToPros = (state)=>({
-    fetchStudentList:filterStudents(state.studentReducers.data,state.searchReducer.searchStr)
+    fetchStudentList:filterStudents(state.studentReducers.data,state.searchReducer.searchStr,state.sortReducer.sortOrder)
 })
 export default connect(mapStateToPros,{fetchStudents:fetchStudents})(Dashboard);

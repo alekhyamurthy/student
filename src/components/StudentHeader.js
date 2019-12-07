@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {searchStudents} from '../actions/fetchStudents'
+import {searchStudents,sortStudentsByName} from '../actions/fetchStudents'
 const searchRef = React.createRef();
 const searchinput ={
     width:'25%',
@@ -11,13 +11,25 @@ const searchbutton={
     margin:'-3rem',
     padding:'2px'
 }
+const filterbutton={
+    height:'35px',
+    padding:'5px',
+    marginLeft:'60px'
+}
+const margin={
+    height:'35px',
+    padding:'5px',
+    marginLeft:'10px'
+}
 
 const StudentHeader =(props)=>{
 return (    
     <div>
         <input style={searchinput} ref={searchRef} onChange={()=>{props.searchStudents(searchRef.current.value)}}/>
         <button style={searchbutton}>search</button>
+        <button style={filterbutton} onClick={()=>{props.sortStudentsByName()}}>Name</button>
+        <button style={margin}>RollNo</button>
     </div>
 )
 }
-export default connect(null,{searchStudents:searchStudents})(StudentHeader);
+export default connect(null,{searchStudents:searchStudents,sortStudentsByName:sortStudentsByName})(StudentHeader);

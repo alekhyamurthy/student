@@ -30,9 +30,9 @@ input{
     height:25px;
     outline: none;
 }
-.form-fields,button{
+.inner-container .form-fields,button{
  margin-left:3rem;
 }
-.form-fields button{
+.inner-container .form-fields button{
     padding:0.25rem;
 }

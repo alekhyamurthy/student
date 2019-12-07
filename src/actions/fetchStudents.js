@@ -12,3 +12,8 @@ export const searchStudents = (value)=>{
     payload:value
 }
 }
+export const sortStudentsByName = ()=>{
+    return {
+        type:'SORT'
+    }
+}
