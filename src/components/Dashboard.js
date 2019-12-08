@@ -17,13 +17,13 @@ import {StudentGrids} from '../components/StudentGrids';
 const filterStudents = (data,searchStr,sortingOrder)=>{
     let filteredstudents = data && Object.values(data).filter(function(e,i,a){
         return e.name.startsWith(searchStr)});
-       return filteredstudents && filteredstudents.sort(function(a, b){
-            if(sortingOrder === 'ASC' && a.name < b.name) { return -1; }
-            if(sortingOrder === 'DESC' && a.name > b.name) { return 1; }
+       return filteredstudents   && filteredstudents.sort(function(a, b){
+            if(sortingOrder.sortOrder === 'ASC' && (sortingOrder.sortBy ==='SORTBYNAME' ? a.name < b.name : a.rollNo - b.rollNo)) { return -1; }
+            if(sortingOrder.sortOrder === 'DESC' && (sortingOrder.sortBy ==='SORTBYNAME' ? a.name > b.name : a.rollNo - b.rollNo)) { return 1; }
             return 0;
-        })
+        });
 }
 const mapStateToPros = (state)=>({
-    fetchStudentList:filterStudents(state.studentReducers.data,state.searchReducer.searchStr,state.sortReducer.sortOrder)
+    fetchStudentList:filterStudents(state.studentReducers.data,state.searchReducer.searchStr,state.sortReducer)
 })
 export default connect(mapStateToPros,{fetchStudents:fetchStudents})(Dashboard);

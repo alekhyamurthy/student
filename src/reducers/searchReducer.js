@@ -5,9 +5,10 @@ export const searchReducer=(state ={searchStr:''},action)=>{
         default: return state;
     }
 };
-export const sortReducer = (state = {sortOrder:'ASC'},action)=>{
+export const sortReducer = (state = {sortOrder:'ASC',sortBy:'SORTBYNAME'},action)=>{
     switch(action.type){
-        case 'SORT':return {sortOrder:state.sortOrder==='ASC'?'DESC':'ASC'}
+        case 'SORT':return {sortOrder:state.sortOrder==='ASC'?'DESC':'ASC',sortBy:action.payload}
+        case 'SORTBYROLLNO':return {sortOrder:state.sortOrder==='ASC'?'DESC':'ASC',sortBy:action.payload}
         default: return state;
     }
 };

@@ -12,8 +12,15 @@ export const searchStudents = (value)=>{
     payload:value
 }
 }
-export const sortStudentsByName = ()=>{
+export const sortStudentsByName = (param)=>{
     return {
-        type:'SORT'
+        type:'SORT',
+        payload:param
+    }
+}
+export const sortStudentsByRollNo = (param)=>{
+    return {
+        type:'SORTBYROLLNO',
+        payload:param
     }
 }

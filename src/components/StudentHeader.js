@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {searchStudents,sortStudentsByName} from '../actions/fetchStudents'
+import {searchStudents,sortStudentsByName,sortStudentsByRollNo} from '../actions/fetchStudents'
 const searchRef = React.createRef();
 const searchinput ={
     width:'25%',
@@ -27,9 +27,9 @@ return (
     <div>
         <input style={searchinput} ref={searchRef} onChange={()=>{props.searchStudents(searchRef.current.value)}}/>
         <button style={searchbutton}>search</button>
-        <button style={filterbutton} onClick={()=>{props.sortStudentsByName()}}>Name</button>
-        <button style={margin}>RollNo</button>
+        <button style={filterbutton} onClick={()=>{props.sortStudentsByName('SORTBYNAME')}}>Name</button>
+        <button style={margin} onClick={()=>{props.sortStudentsByRollNo('SORTBYROLLNO')}}>RollNo</button>
     </div>
 )
 }
-export default connect(null,{searchStudents:searchStudents,sortStudentsByName:sortStudentsByName})(StudentHeader);
+export default connect(null,{searchStudents:searchStudents,sortStudentsByName:sortStudentsByName,sortStudentsByRollNo:sortStudentsByRollNo})(StudentHeader);
