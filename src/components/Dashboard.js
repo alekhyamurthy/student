@@ -19,7 +19,7 @@ const filterStudents = (data,searchStr,sortingOrder)=>{
         return e.name.startsWith(searchStr)});
        return filteredstudents   && filteredstudents.sort(function(a, b){
             if(sortingOrder.sortOrder === 'ASC' && (sortingOrder.sortBy ==='SORTBYNAME' ? a.name < b.name : a.rollNo - b.rollNo)) { return -1; }
-            if(sortingOrder.sortOrder === 'DESC' && (sortingOrder.sortBy ==='SORTBYNAME' ? a.name > b.name : a.rollNo - b.rollNo)) { return 1; }
+            if(sortingOrder.sortOrder === 'DESC' && (sortingOrder.sortBy ==='SORTBYNAME' ? a.name > b.name : b.rollNo - a.rollNo)) { return 1; }
             return 0;
         });
 }
