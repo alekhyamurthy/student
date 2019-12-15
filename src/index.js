@@ -8,4 +8,6 @@ import { applyMiddleware  } from 'redux';
 import { reducers } from '../src/reducers/combinedReducer';
 import thunk from 'redux-thunk';
 const store = createStore(reducers, applyMiddleware(thunk));
-ReactDom.render(<Provider store={store}><BrowserRouter><StudentApp /></BrowserRouter></Provider>, document.querySelector("#studentcontainer"));
+ReactDom.render(<Provider store={store}>
+    <BrowserRouter><StudentApp /></BrowserRouter></Provider>, 
+    document.querySelector("#studentcontainer"));

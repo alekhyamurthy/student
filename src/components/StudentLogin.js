@@ -14,6 +14,7 @@ export class StudentLogin extends React.Component{
         this.setState({"redirectToReferrer":true});
 	}
     render(){
+        console.log('logincomponent');
         const redirectToReferrer = this.state.redirectToReferrer;
         if (redirectToReferrer === true) {
            return  <Redirect to="/dashboard" />

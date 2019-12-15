@@ -11,7 +11,7 @@ import {StudentGrids} from '../components/StudentGrids';
         if(!this.props.fetchStudentList){
             return <div>Loading</div>;
         }
-        return (<StudentGrids list={this.props.fetchStudentList}/>)
+        return (<StudentGrids {...this.props}/>)
     }
 }
 const filterStudents = (data,searchStr,sortingOrder)=>{
